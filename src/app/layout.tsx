@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Inter, Merriweather } from "next/font/google";
+import { Merriweather } from "next/font/google";
 import "./globals.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import { cn } from "@/lib/utils";
 import ActiveSectionContextProvider from "@/context/active-section-context";
 
