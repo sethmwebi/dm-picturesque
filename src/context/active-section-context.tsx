@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState } from "react";
 
-type SectionName = "Home" | "Photos" | "About" | "Testimonials" | "Contact";
+type SectionName = "Home" | "Photos" | "About" | "Services" | "Contact";
 
 type ActiveSectionContextType = {
   activeSection: SectionName;

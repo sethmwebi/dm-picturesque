@@ -1,10 +1,36 @@
+import { Check } from "lucide-react";
+import Image from "next/image";
 import React from "react";
+
 
 const About = () => {
   return (
     <section className="h-[100vh] w-full" id="about">
-      <h2 className="text-center text-xl tracking-wide mb-8">About</h2>
-    </section>
+      <div className="w-full flex justify-center mt-12">
+        <div className="relative h-56 w-56 md:mt-24 overflow-hidden rounded-full">
+          <Image src="/daniel-majale.jpeg" fill alt="the photographer" />
+        </div>
+      </div>
+      <h4 className="text-center font-sans text-2xl font-extrabold mt-4">
+        Hi I&apos;m Daniel Majale
+      </h4>
+      <div className="mt-4 text-gray-200 font-thin w-[80%] mx-auto">
+        <p>
+          I&apos;m a photographer driven by a profound passion to capture the
+          essence of human existence through my lens. With a background immersed
+          in diverse cultures and experiences, I aim to transcend boundaries and
+          invite viewers to immerse themselves in the richness of each frame.
+        </p>
+        <p className="mt-2">
+          With an insatiable curiosity and a keen eye for detail, I navigate
+          through life&apos;s complexities, seeking out moments of raw emotion
+          and intrinsic beauty. From sweeping landscapes to intimate portraits,
+          every photograph on my website is a narrative waiting to unfold. Join
+          me on this journey of visual exploration, where each image serves as a
+          window into the captivating world we inhabit.
+        </p>
+      </div>
+          </section>
   );
 };
 

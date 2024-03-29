@@ -22,24 +22,24 @@ const Photos = () => {
 
   return (
     <section id="photos" className="my-12 w-full">
-      <h2 className="text-center text-xl tracking-wide mb-8">Photos</h2>
+      <h2 className="text-center text-4xl tracking-wide mb-8">Photos</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 w-full">
         {[...Array(19).keys()].map((i) => (
           <div
             key={`photos-${i}`}
-            className="w-auto h-32 sm:h-44 lg:h-48 relative group"
+            className="w-auto h-32 sm:h-44 lg:h-48 relative group overflow-hidden"
             onClick={() => {
               setIsOpen(true);
               setActiveImage(i);
             }}
           >
-            <div className="hidden group-hover:flex items-center justify-center h-full w-full bg-black/60 absolute top-0 right-0 left-0 bottom-0 z-30">
+            <div className="hidden group-hover:flex items-center justify-center h-full w-full bg-black/80 absolute top-0 right-0 left-0 bottom-0 z-30 cursor-pointer">
               <Eye className="text-primary cursor-pointer" size={28} />
             </div>
             <div className="absolute top-0 bottom-0 left-0 right-0 z-20 bg-black/40" />
             <Image
               src={`/assets/img-${i + 1}.jpg`}
-              className="object-cover"
+              className="object-cover object-top transform transition duration-500 ease-in-out group-hover:scale-105"
               fill
               alt=""
             />
