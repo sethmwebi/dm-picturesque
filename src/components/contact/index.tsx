@@ -85,6 +85,19 @@ const Contact = () => {
           </div>
           <FormField
             control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Email</FormLabel>
+                <FormControl>
+                  <Input {...field} required/>
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
             name="subject"
             render={({ field }) => (
               <FormItem>
@@ -96,7 +109,7 @@ const Contact = () => {
               </FormItem>
             )}
           />
-          <FormField
+<FormField
             control={form.control}
             name="message"
             render={({ field }) => (
