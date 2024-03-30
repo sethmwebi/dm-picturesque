@@ -1,11 +1,10 @@
-import { Check } from "lucide-react";
 import Image from "next/image";
 import React from "react";
 
 
 const About = () => {
   return (
-    <section className="h-[100vh] w-full" id="about">
+    <section className="min-h-[100vh] w-full" id="about">
       <div className="w-full flex justify-center mt-12">
         <div className="relative h-56 w-56 md:mt-24 overflow-hidden rounded-full">
           <Image src="/daniel-majale.jpeg" fill alt="the photographer" />

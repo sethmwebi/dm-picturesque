@@ -44,3 +44,11 @@
     @apply bg-background text-muted-foreground max-w-5xl mx-auto;
   }
 }
+
+.slick-dots li button:before {
+  color: #FFC0CB !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #FFC0CB !important;
+}

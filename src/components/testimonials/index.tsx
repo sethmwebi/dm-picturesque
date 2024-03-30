@@ -7,9 +7,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const settings = {
-  arrows: false,
   infinite: true,
   slidesToShow: 1,
+  dots: true,
   slidesToScroll: 1,
   autoplay: true,
   speed: 2500,
@@ -21,7 +21,7 @@ const Testimonials = () => {
   return (
     <div className="w-full my-20" id="testimonials">
       <h2 className="text-center text-4xl tracking-wide mb-16">Testimonials</h2>
-      <div className="w-full mx-auto">
+      <div className="w-[90%] lg:w-full mx-auto">
         <Slider {...settings}>
           {testimonials.map((testimonial, idx) => (
             <div
@@ -38,7 +38,7 @@ const Testimonials = () => {
               <div className="my-4 text-center">
               <p className="mx-auto block">{testimonial.name}</p>
               </div>
-              <p className="w-[75%] mx-auto font-thin">{`"${testimonial.testimonial}"`}</p>
+              <p className="w-[90%] lg:w-[75%] mx-auto font-thin">{`"${testimonial.testimonial}"`}</p>
             </div>
           ))}
         </Slider>
