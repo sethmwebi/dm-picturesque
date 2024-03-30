@@ -39,7 +39,7 @@ const Photos = () => {
             <div className="absolute top-0 bottom-0 left-0 right-0 z-20 bg-black/40" />
             <Image
               src={`/assets/img-${i + 1}.jpg`}
-              className="object-cover object-top transform transition duration-500 ease-in-out group-hover:scale-105"
+              className="object-cover object-center lg:object-top transform transition duration-500 ease-in-out group-hover:scale-105"
               fill
               alt=""
             />

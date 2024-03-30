@@ -21,13 +21,13 @@ const Testimonials = () => {
   return (
     <div className="w-full my-20" id="testimonials">
       <h2 className="text-center text-4xl tracking-wide mb-16">Testimonials</h2>
-      <div className="w-[90%] lg:w-full mx-auto">
+      <div className="w-[90%] mx-auto">
         <Slider {...settings}>
           {testimonials.map((testimonial, idx) => (
             <div
               key={`testimonial-${idx}`}
             >
-              <div className="relative h-16 w-16 rounded-full overflow-hidden mx-auto">
+              <div className="relative bg-black h-16 w-16 rounded-full overflow-hidden mx-auto">
                 <Image
                   src={testimonial.image_url}
                   className="object-cover object-top"

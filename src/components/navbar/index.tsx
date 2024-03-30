@@ -30,7 +30,7 @@ const Navbar = () => {
             key={link.hash}
             href={link.hash}
             className={clsx(
-              "hover:text-primary underline-offset-4 last:px-2 last:py-2 last:lg:px-2 last:bg-primary last:hover:text-gray-200 last:text-secondary last:rounded-xl overflow-hidden",
+              "hover:text-primary underline-offset-4 last:px-2 last:py-2 last:lg:px-2 last:bg-primary last:text-secondary last:hover:text-secondary/60",
               {
                 "text-primary last:text-gray-200": activeSection === link.name,
               },
