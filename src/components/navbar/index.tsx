@@ -12,6 +12,7 @@ import {
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { links } from "@/lib/data";
 import clsx from "clsx";
+import Image from "next/image";
 
 const Navbar = () => {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
@@ -19,9 +20,9 @@ const Navbar = () => {
 
   return (
     <div className="flex justify-between items-center text-muted-foreground bg-background py-4">
-      <div className="border-2 px-2 lg:px-4 py-2 border-primary">
+      <div className="relative h-10 w-10">
         <Link href="#home" className="whitespace-nowrap">
-          DM Picturesque
+          <Image src="/logo-color.svg" fill alt="" />
         </Link>
       </div>
       <div className="hidden sm:flex items-center gap-x-2 lg:gap-x-4 uppercase text-md lg:text-lg tracking-wide">
