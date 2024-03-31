@@ -21,7 +21,7 @@ const Photos = () => {
   const slider = useRef<Slider | null>(null);
 
   return (
-    <section id="photos" className="my-12 w-full">
+    <section id="photos" className="my-12 w-full scroll-mt-[28px]">
       <h2 className="text-center text-4xl tracking-wide mb-8">Photos</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 w-full">
         {[...Array(19).keys()].map((i) => (

@@ -43,7 +43,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="w-full my-12 md:my-20" id="contact">
+    <section className="w-full my-12 md:my-20 scroll-mt-[28px]" id="contact">
       <h2 className="text-center text-4xl tracking-wide mb-8 md:mb-16">
         Contact
       </h2>

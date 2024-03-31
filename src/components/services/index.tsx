@@ -15,7 +15,7 @@ const services = [
 
 const Services = () => {
   return (
-    <section className="min-h-[100vh] w-full" id="services">
+    <section className="min-h-[100vh] w-full scroll-mt-[28px]" id="services">
  <div>
         <h4 className="text-center font-sans text-4xl font-extrabold mt-12 md:mt-24 mb-8 md:mb-16">
           Services

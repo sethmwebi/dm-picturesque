@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { links } from "@/lib/data";
+import { motion } from "framer-motion";
 import clsx from "clsx";
 import Image from "next/image";
 
@@ -26,7 +27,13 @@ const Navbar = () => {
             <Instagram size={12} />
           </Link>
           <Link href="https://www.tiktok.com/@dandmpictures_ke" target="_blank">
-            <Image src="/tiktok.svg" className="text-white" alt="" height={13} width={13} />
+            <Image
+              src="/tiktok.svg"
+              className="text-white"
+              alt=""
+              height={13}
+              width={13}
+            />
           </Link>
         </div>
         <div>
@@ -34,16 +41,18 @@ const Navbar = () => {
         </div>
       </div>
       <div className="flex justify-between items-center pt-[28px] py-2">
-        <div className="relative h-10 w-10 z-10">
+        <motion.div
+          initial={{ y: -100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          className="relative h-10 w-10 z-10"
+        >
           <Link href="#home" className="whitespace-nowrap">
             <Image src="/logo-color.svg" fill alt="" />
           </Link>
-        </div>
-        <div className="hidden sm:flex items-center gap-x-2 lg:gap-x-4 uppercase text-md lg:text-lg tracking-wide">
+        </motion.div>
+        <ul className="hidden sm:flex items-center gap-x-2 lg:gap-x-4 uppercase text-md lg:text-lg tracking-wide">
           {links.map((link) => (
-            <Link
-              key={link.hash}
-              href={link.hash}
+            <motion.li
               className={clsx(
                 "hover:text-primary underline-offset-4 last:px-2 last:py-2 last:lg:px-2 last:bg-primary last:text-secondary last:hover:text-secondary/60",
                 {
@@ -51,15 +60,18 @@ const Navbar = () => {
                     activeSection === link.name,
                 },
               )}
+              key={link.hash}
               onClick={() => {
                 setActiveSection(link.name);
                 setTimeOfLastClick(Date.now());
               }}
+              initial={{ y: -100, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
             >
-              {link.name}
-            </Link>
+              <Link href={link.hash}>{link.name}</Link>
+            </motion.li>
           ))}
-        </div>
+        </ul>
         <div className="sm:hidden">
           <Sheet>
             <SheetTrigger asChild>

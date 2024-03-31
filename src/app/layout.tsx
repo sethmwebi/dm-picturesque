@@ -21,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="!scroll-smooth" suppressHydrationWarning={true}>
       <body
         className={cn(
           "bg-background px-2 sm:px-4 lg:px-0",
