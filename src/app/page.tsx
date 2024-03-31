@@ -4,6 +4,7 @@ import Photos from "@/components/photos";
 import About from "@/components/about";
 import Contact from "@/components/contact";
 import Services from "@/components/services";
+import Footer from "@/components/footer";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <About />
       <Services/>
       <Contact />
+      <Footer />
     </main>
   );
 }

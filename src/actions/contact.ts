@@ -10,5 +10,6 @@ export const contact = (values: z.infer<typeof ContactSchema>) => {
     return { error: "Invalid fields!" };
   }
 
-  console.log(values)
+  // console.log(values)
+  return values
 };

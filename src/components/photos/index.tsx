@@ -27,13 +27,13 @@ const Photos = () => {
         {[...Array(19).keys()].map((i) => (
           <div
             key={`photos-${i}`}
-            className="w-auto h-32 sm:h-44 lg:h-48 relative group overflow-hidden"
+            className="w-auto h-32 sm:h-44 lg:h-48 relative cursor-pointer group overflow-hidden"
             onClick={() => {
               setIsOpen(true);
               setActiveImage(i);
             }}
           >
-            <div className="hidden group-hover:flex items-center justify-center h-full w-full bg-black/80 absolute top-0 right-0 left-0 bottom-0 z-30 cursor-pointer">
+            <div className="hidden group-hover:flex items-center justify-center h-full w-full bg-black/80 absolute top-0 right-0 left-0 bottom-0 z-20 cursor-pointer">
               <Eye className="text-primary cursor-pointer" size={28} />
             </div>
             <div className="absolute top-0 bottom-0 left-0 right-0 z-20 bg-black/40" />

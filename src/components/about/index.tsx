@@ -7,7 +7,7 @@ const About = () => {
     <section className="min-h-[100vh] w-full" id="about">
       <div className="w-full flex justify-center mt-12">
         <div className="relative bg-black h-32 w-32 md:w-44 md:h-44 lg:h-48 lg:w-48 md:mt-24 overflow-hidden rounded-full">
-          <Image src="/daniel-majale.jpeg" fill alt="the photographer" />
+          <Image src="/daniel-majale.jpeg" className="object-cover" fill alt="the photographer" />
         </div>
       </div>
       <h4 className="text-center font-sans text-2xl font-extrabold mt-4">
