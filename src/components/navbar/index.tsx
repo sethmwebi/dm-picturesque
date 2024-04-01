@@ -1,46 +1,63 @@
 "use client";
-import { Instagram, Menu } from "lucide-react";
 import Link from "next/link";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
 import { useActiveSectionContext } from "@/context/active-section-context";
 import { links } from "@/lib/data";
-import { motion } from "framer-motion";
+import { motion, useCycle } from "framer-motion";
 import clsx from "clsx";
 import Image from "next/image";
+import { useRef } from "react";
+import { useDimensions } from "@/lib/hooks";
+import { Navigation } from "./navigation";
+import { MenuToggle } from "./menu-toggle";
+import { Instagram } from "lucide-react";
 
 const Navbar = () => {
+  const [isOpen, toggleOpen] = useCycle(false, true);
+  const containerRef = useRef(null);
+  const { height } = useDimensions(containerRef);
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
+  const sidebar = {
+    open: (height = 1000) => ({
+      clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+      transition: {
+        type: "spring",
+        stiffness: 20,
+        restDelta: 2,
+      },
+    }),
+    closed: {
+      clipPath: "circle(20px at 40px 50px)",
+      transition: {
+        delay: 0.5,
+        type: "spring",
+        stiffness: 400,
+        damping: 40,
+      },
+    },
+  };
 
   return (
-    <div className="">
-      <div className="flex fixed top-0 left-0 right-0 max-w-full mx-auto z-20 text-white bg-black/20 justify-between px-2 py-1 items-center text-xs">
+    <div className="z-20">
+      <motion.div
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ delay: 0.9 }}
+        className="flex fixed top-0 left-0 right-0 max-w-full mx-auto z-20 text-white bg-black/20 justify-between px-2 py-1 items-center text-xs"
+      >
         <div className="flex gap-x-2 items-center">
           <Link href="https://www.instagram.com/dm.pictureske" target="_blank">
             <Instagram size={12} />
           </Link>
           <Link href="https://www.tiktok.com/@dandmpictures_ke" target="_blank">
-            <Image
-              src="/tiktok.svg"
-              className="text-white"
-              alt=""
-              height={13}
-              width={13}
-            />
+            <Image src="/tiktok.svg" alt="" height={13} width={13} />
           </Link>
         </div>
         <div>
-          <p className="text-white">0794592974</p>
+          <p>0794592974</p>
         </div>
-      </div>
-      <div className="flex justify-between items-center pt-[28px] py-2">
+      </motion.div>
+      <div className="flex flex-row-reverse sm:flex-row justify-between items-center pt-[28px] py-2">
         <motion.div
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -72,39 +89,21 @@ const Navbar = () => {
             </motion.li>
           ))}
         </ul>
-        <div className="sm:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Menu className="text-primary cursor-pointer" size={32} />
-            </SheetTrigger>
-            <SheetContent>
-              <SheetHeader>
-                <SheetTitle asChild>
-                  <div className="text-primary w-fit border-primary">
-                    <SheetClose asChild>
-                      <Link href="#home" className="whitespace-nowrap">
-                        DM Picturesque
-                      </Link>
-                    </SheetClose>
-                  </div>
-                </SheetTitle>
-              </SheetHeader>
-              <div className="flex h-full justify-center items-center">
-                <div className="flex flex-col items-center justify-around h-[75%] uppercase text-md lg:text-lg tracking-wide text-primary">
-                  {links.map((link) => (
-                    <SheetClose key={`mobile-${link.hash}`} asChild>
-                      <Link
-                        href={link.hash}
-                        className="hover:underline underline-offset-4 last:px-2 last:py-2 last:lg:px-2 last:bg-primary last:text-secondary"
-                      >
-                        {link.name}
-                      </Link>
-                    </SheetClose>
-                  ))}
-                </div>
-              </div>
-            </SheetContent>
-          </Sheet>
+        <div className="sm:hidden z-20 overflow-hidden h-100vh">
+          <motion.nav
+            initial={false}
+            animate={isOpen ? "open" : "closed"}
+            custom={isOpen ? height : 0}
+            ref={containerRef}
+            className="absolute top-0 left-0 w-[300px] overflow-hidden"
+          >
+            <motion.div
+              className="bg-[#b79891] z-[9999] absolute top-0 left-0 w-[300px] h-full"
+              variants={sidebar}
+            />
+            <Navigation />
+            <MenuToggle toggle={() => toggleOpen()} />
+          </motion.nav>
         </div>
       </div>
     </div>

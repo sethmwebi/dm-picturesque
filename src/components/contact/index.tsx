@@ -4,6 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import React, { useState, useTransition } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { motion } from "framer-motion";
 import {
   Form,
   FormControl,
@@ -17,8 +18,10 @@ import { Textarea } from "../ui/textarea";
 import { Button } from "../ui/button";
 import { contact } from "@/actions/contact";
 import { FormError } from "../common/form-error";
+import { useSectionInView } from "@/lib/hooks";
 
 const Contact = () => {
+  const { ref } = useSectionInView("Contact");
   const [error, setError] = useState<string | undefined>("");
   const [success, setSuccess] = useState<string | undefined>("");
   const [isPending, startTransition] = useTransition();
@@ -43,7 +46,15 @@ const Contact = () => {
   };
 
   return (
-    <section className="w-full my-12 md:my-20 scroll-mt-[28px]" id="contact">
+    <motion.section
+      ref={ref}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1 }}
+      viewport={{ once: true }}
+      className="w-full my-12 md:my-20 scroll-mt-[28px]"
+      id="contact"
+    >
       <h2 className="text-center text-4xl tracking-wide mb-8 md:mb-16">
         Contact
       </h2>
@@ -90,7 +101,7 @@ const Contact = () => {
               <FormItem>
                 <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input {...field} required/>
+                  <Input {...field} required />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -109,7 +120,7 @@ const Contact = () => {
               </FormItem>
             )}
           />
-<FormField
+          <FormField
             control={form.control}
             name="message"
             render={({ field }) => (
@@ -131,7 +142,7 @@ const Contact = () => {
           </Button>
         </form>
       </Form>
-    </section>
+    </motion.section>
   );
 };
 

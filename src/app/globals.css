@@ -2,6 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+.slick-dots li button:before {
+  color: #ffc0cb !important;
+}
+
+.slick-dots li.slick-active button:before {
+  color: #ffc0cb !important;
+}
+
 @layer base {
   :root {
     --gradient: linear-gradient(to top left, #b79891, #94716b);
@@ -35,7 +54,9 @@
 
     --ring: 12 21% 64%;
   }
+}
 
+@layer base {
   * {
     @apply border-border;
   }
@@ -43,12 +64,4 @@
   body {
     @apply bg-background text-muted-foreground max-w-5xl mx-auto;
   }
-}
-
-.slick-dots li button:before {
-  color: #FFC0CB !important;
-}
-
-.slick-dots li.slick-active button:before {
-  color: #FFC0CB !important;
 }

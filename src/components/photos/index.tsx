@@ -4,6 +4,8 @@ import { Fragment, useState, useRef } from "react";
 import Slider from "react-slick";
 import { Dialog, Transition } from "@headlessui/react";
 import { Eye, MoveLeft, MoveRight, X } from "lucide-react";
+import { motion } from "framer-motion";
+import { useSectionInView } from "@/lib/hooks";
 
 const settings = {
   arrows: false,
@@ -15,23 +17,38 @@ const settings = {
   waitForAnimate: false,
 };
 
+const fadeInAnimationVariants = {
+  initial: { opacity: 0, y: 100 },
+  animate: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: 0.05 * index, duration: 0.75 },
+  }),
+};
+
 const Photos = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeImage, setActiveImage] = useState(0);
   const slider = useRef<Slider | null>(null);
+  const { ref } = useSectionInView("Photos");
 
   return (
-    <section id="photos" className="my-12 w-full scroll-mt-[28px]">
+    <section ref={ref} id="photos" className="my-12 w-full scroll-mt-[28px]">
       <h2 className="text-center text-4xl tracking-wide mb-8">Photos</h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 w-full">
         {[...Array(19).keys()].map((i) => (
-          <div
+          <motion.div
             key={`photos-${i}`}
             className="w-auto h-32 sm:h-44 lg:h-48 relative cursor-pointer group overflow-hidden"
             onClick={() => {
               setIsOpen(true);
               setActiveImage(i);
             }}
+            variants={fadeInAnimationVariants}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: true }}
+            custom={i}
           >
             <div className="hidden group-hover:flex items-center justify-center h-full w-full bg-black/80 absolute top-0 right-0 left-0 bottom-0 z-20 cursor-pointer">
               <Eye className="text-primary cursor-pointer" size={28} />
@@ -43,7 +60,7 @@ const Photos = () => {
               fill
               alt=""
             />
-          </div>
+          </motion.div>
         ))}
       </div>
       <Transition appear show={isOpen} as={Fragment}>

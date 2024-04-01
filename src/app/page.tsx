@@ -11,8 +11,8 @@ export default function HomePage() {
     <main>
       <Navbar />
       <Home />
-      <Photos />
       <About />
+      <Photos />
       <Services/>
       <Contact />
       <Footer />
