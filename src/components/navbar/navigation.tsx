@@ -18,7 +18,7 @@ export const Navigation = ({ toggle}: any) => (
       variants={variants}
     >
       {links.map((i) => (
-        <MenuItem i={i} key={i} onClick={toggle}/>
+        <MenuItem i={i.name} key={i.hash} toggle={toggle}/>
       ))}
     </motion.ul>
   </div>
