@@ -27,7 +27,7 @@ const Navbar = () => {
       },
     }),
     closed: {
-      clipPath: "circle(20px at 40px 50px)",
+      clipPath: "circle(20px at 40px 30px)",
       transition: {
         delay: 0.5,
         type: "spring",
@@ -39,28 +39,8 @@ const Navbar = () => {
 
   return (
     <div className="z-20">
-      <motion.div
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ delay: 0.9 }}
-        className="flex fixed top-0 left-0 right-0 max-w-full mx-auto z-20 text-white bg-black/20 justify-between px-2 py-1 items-center text-xs"
-      >
-        <div className="flex gap-x-2 items-center">
-          <Link href="https://www.instagram.com/dm.pictureske" target="_blank">
-            <Instagram size={12} />
-          </Link>
-          <Link href="https://www.tiktok.com/@dandmpictures_ke" target="_blank">
-            <Image src="/tiktok.svg" alt="" height={13} width={13} />
-          </Link>
-        </div>
-        <div>
-          <p>0794592974</p>
-        </div>
-      </motion.div>
-      <div className="flex flex-row-reverse sm:flex-row justify-between items-center pt-[28px] py-2">
-        <div
-          className="relative h-10 w-10 z-10"
-        >
+      <div className="flex flex-row-reverse sm:flex-row justify-between items-center py-2">
+        <div className="relative h-10 w-10 z-10">
           <Link href="#home" className="whitespace-nowrap">
             <Image src="/logo-color.svg" fill alt="" />
           </Link>

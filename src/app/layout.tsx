@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { cn } from "@/lib/utils";
 import ActiveSectionContextProvider from "@/context/active-section-context";
+import Image from "next/image";
 
 const merriweather = Merriweather({
   subsets: ["latin"],
@@ -29,6 +30,14 @@ export default function RootLayout({
         )}
       >
         <ActiveSectionContextProvider>{children}</ActiveSectionContextProvider>
+        <a href="https://wa.me/0718491538" target="_blank" className="w-fit p-2 bg-black/10 hover:bg-black/40 cursor-pointer rounded-full fixed bottom-4 right-4 z-[20000]">
+          <Image
+            alt="whatsapp icon"
+            src="/whatsapp.svg"
+            height={32}
+            width={32}
+          />
+        </a>
       </body>
     </html>
   );
