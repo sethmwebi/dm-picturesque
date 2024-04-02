@@ -11,10 +11,8 @@ const Path = (props: any) => (
 );
 
 export const MenuToggle = ({ toggle }: any) => (
-  <motion.button
-    initial={{ y: -100, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    className="outline-none text-white border-none absolute cursor-pointer top-[40px] left-[30px] rounded-full bg-transparent"
+  <button
+    className="outline-none text-white border-none absolute cursor-pointer top-[40px] left-[30px] rounded-full bg-transparent z-[10000]"
     onClick={toggle}
   >
     <svg width="23" height="23" viewBox="0 0 23 23">
@@ -40,5 +38,5 @@ export const MenuToggle = ({ toggle }: any) => (
         }}
       />
     </svg>
-  </motion.button>
+  </button>
 );

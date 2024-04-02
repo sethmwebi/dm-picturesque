@@ -2,7 +2,7 @@
 import React from "react";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { motion, stagger } from "framer-motion";
+import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
 import { useActiveSectionContext } from "@/context/active-section-context";
 
@@ -16,7 +16,7 @@ const Home = () => {
       ref={ref}
       className="h-[calc(100vh-76px)] bg-[url('/sea.jpg')] bg-cover bg-center w-full "
     >
-      <div className="bg-black/90 h-[100%] w-[100%] z-10 flex items-center justify-center">
+      <div className="bg-black/50 h-[100%] w-[100%] z-10 flex items-center justify-center">
         <div className="flex flex-col items-center gap-y-4">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

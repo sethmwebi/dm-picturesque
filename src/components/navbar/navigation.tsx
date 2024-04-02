@@ -12,13 +12,13 @@ const variants = {
 };
 
 export const Navigation = ({ toggle}: any) => (
-  <div className="h-[100vh] flex flex-col w-full items-center justify-center">
+  <div className="h-[100vh] flex z-[10000] flex-col w-full items-center justify-center">
     <motion.ul
       className="absolute flex flex-col justify-between h-[60vh] text-[#fafafa] w-[50%] mx-auto"
       variants={variants}
     >
       {links.map((i) => (
-        <MenuItem i={i.name} key={i.hash} toggle={toggle}/>
+        <MenuItem i={i} key={i.hash} toggle={toggle}/>
       ))}
     </motion.ul>
   </div>

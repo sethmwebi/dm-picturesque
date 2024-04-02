@@ -58,15 +58,13 @@ const Navbar = () => {
         </div>
       </motion.div>
       <div className="flex flex-row-reverse sm:flex-row justify-between items-center pt-[28px] py-2">
-        <motion.div
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
+        <div
           className="relative h-10 w-10 z-10"
         >
           <Link href="#home" className="whitespace-nowrap">
             <Image src="/logo-color.svg" fill alt="" />
           </Link>
-        </motion.div>
+        </div>
         <ul className="hidden sm:flex items-center gap-x-2 lg:gap-x-4 uppercase text-md lg:text-lg tracking-wide">
           {links.map((link) => (
             <motion.li
@@ -89,7 +87,7 @@ const Navbar = () => {
             </motion.li>
           ))}
         </ul>
-        <div className="sm:hidden z-20 overflow-hidden h-100vh">
+        <div className="sm:hidden overflow-hidden h-100vh">
           <motion.nav
             initial={false}
             animate={isOpen ? "open" : "closed"}
@@ -101,7 +99,7 @@ const Navbar = () => {
               className="bg-[#b79891] z-[9999] absolute top-0 left-0 w-[300px] h-full"
               variants={sidebar}
             />
-            <Navigation />
+            <Navigation toggle={() => toggleOpen()} />
             <MenuToggle toggle={() => toggleOpen()} />
           </motion.nav>
         </div>

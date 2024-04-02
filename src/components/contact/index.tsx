@@ -19,6 +19,7 @@ import { Button } from "../ui/button";
 import { contact } from "@/actions/contact";
 import { FormError } from "../common/form-error";
 import { useSectionInView } from "@/lib/hooks";
+import { transformAnimationVariants } from "@/lib/animations";
 
 const Contact = () => {
   const { ref } = useSectionInView("Contact");
@@ -47,10 +48,11 @@ const Contact = () => {
 
   return (
     <motion.section
+      variants={transformAnimationVariants}
+      custom={1}
       ref={ref}
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ duration: 1 }}
+      initial="initial"
+      whileInView="animate"
       viewport={{ once: true }}
       className="w-full my-12 md:my-20 scroll-mt-[28px]"
       id="contact"

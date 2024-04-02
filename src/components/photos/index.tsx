@@ -6,6 +6,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Eye, MoveLeft, MoveRight, X } from "lucide-react";
 import { motion } from "framer-motion";
 import { useSectionInView } from "@/lib/hooks";
+import { transformAnimationVariants } from "@/lib/animations";
 
 const settings = {
   arrows: false,
@@ -34,7 +35,16 @@ const Photos = () => {
 
   return (
     <section ref={ref} id="photos" className="my-12 w-full scroll-mt-[28px]">
-      <h2 className="text-center text-4xl tracking-wide mb-8">Photos</h2>
+      <motion.h2
+        variants={transformAnimationVariants}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: true }}
+        custom={1}
+        className="text-center text-4xl tracking-wide mb-8"
+      >
+        Photos
+      </motion.h2>
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 w-full">
         {[...Array(19).keys()].map((i) => (
           <motion.div

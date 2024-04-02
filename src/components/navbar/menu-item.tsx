@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Link from "next/link"
 
 const variants = {
   open: {
@@ -17,14 +18,16 @@ const variants = {
   },
 };
 
-export const MenuItem = ({ i, toggle }: {i: any, toggle: any}) => {
+export const MenuItem = ({ i, toggle }: { i: any; toggle: any }) => {
   return (
     <motion.li
       variants={variants}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="mb-[20px] flex items-center cursor-pointer" onClick={toggle} >
-    {i.name} 
+      className="mb-[20px] z-[10000] flex items-center cursor-pointer"
+      onClick={toggle}
+    >
+      <Link href={i.hash}>{i.name}</Link>
     </motion.li>
   );
 };
