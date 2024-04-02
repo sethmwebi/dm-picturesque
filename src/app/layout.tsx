@@ -30,7 +30,7 @@ export default function RootLayout({
         )}
       >
         <ActiveSectionContextProvider>{children}</ActiveSectionContextProvider>
-        <a href="https://wa.me/0718491538" target="_blank" className="w-fit p-2 bg-black/10 hover:bg-black/40 cursor-pointer rounded-full fixed bottom-4 right-4 z-[20000]">
+        <a href="https://wa.me/+254718491538" target="_blank" className="w-fit p-2 bg-black/10 hover:bg-black/40 cursor-pointer rounded-full fixed bottom-4 right-4 z-[20000]">
           <Image
             alt="whatsapp icon"
             src="/whatsapp.svg"
